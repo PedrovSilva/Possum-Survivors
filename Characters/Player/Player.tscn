@@ -1,7 +1,8 @@
-[gd_scene load_steps=30 format=3 uid="uid://bqsfydr8c5o08"]
+[gd_scene load_steps=31 format=3 uid="uid://bqsfydr8c5o08"]
 
 [ext_resource type="Texture2D" uid="uid://byg7pyix48yb2" path="res://Characters/Player/possum.png" id="1_5k68k"]
 [ext_resource type="Script" path="res://Characters/Player/player.gd" id="1_kes2s"]
+[ext_resource type="PackedScene" uid="uid://b3ysds47qi5o0" path="res://Guns/gun.tscn" id="3_5geu4"]
 
 [sub_resource type="Animation" id="Animation_melel"]
 length = 0.001
@@ -509,3 +510,5 @@ parameters/walk/blend_position = Vector2(0.643312, -0.0351064)
 shape = SubResource("CircleShape2D_kk722")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Gun" parent="." instance=ExtResource("3_5geu4")]
