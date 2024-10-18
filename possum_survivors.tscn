@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://v84y42jjjsrb"]
+[gd_scene load_steps=4 format=3 uid="uid://v84y42jjjsrb"]
 
 [ext_resource type="PackedScene" uid="uid://bqsfydr8c5o08" path="res://Characters/Player/Player.tscn" id="1_21prg"]
 [ext_resource type="PackedScene" uid="uid://hgh1u6vbajt" path="res://Trees/tree.tscn" id="1_xaqul"]
+[ext_resource type="PackedScene" uid="uid://bofjg8xl8vxvy" path="res://Characters/slime/mob_slime.tscn" id="2_lgeab"]
 
 [node name="Game" type="Node2D"]
 y_sort_enabled = true
@@ -13,6 +14,9 @@ color = Color(0.211765, 1, 0.396078, 1)
 
 [node name="Player" parent="." instance=ExtResource("1_21prg")]
 position = Vector2(336, 241)
+
+[node name="Mob_Slime" parent="." instance=ExtResource("2_lgeab")]
+position = Vector2(341, 457)
 
 [node name="StaticBody2D" parent="." instance=ExtResource("1_xaqul")]
 position = Vector2(756, 201)
