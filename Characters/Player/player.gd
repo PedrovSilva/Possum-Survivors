@@ -1,9 +1,10 @@
 extends CharacterBody2D
 
+signal health_depleted
 
 @export var SPEED = 300.0
-
 @onready var animation_tree : AnimationTree = $AnimationTree
+var health = 100.0
 
 var direction: Vector2 = Vector2.ZERO
 
@@ -25,7 +26,18 @@ func _physics_process(delta: float) -> void:
 		velocity = Vector2.ZERO
 
 	move_and_slide()
-
+	
+	const DAMAGE_RATE = 50.0
+	var overlapping_mobs =  %HurtBox.get_overlapping_bodies()
+	
+	if overlapping_mobs.size() > 0:
+		health -= DAMAGE_RATE * overlapping_mobs.size() * delta
+		%ProgressBar.value = health
+		
+		if health <= 0.0:
+			health_depleted.emit()
+			
+	
 func update_animation_parameters() -> void:
 	if (velocity == Vector2.ZERO):
 		animation_tree["parameters/conditions/is_moving"] = false

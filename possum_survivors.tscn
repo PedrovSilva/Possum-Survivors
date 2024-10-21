@@ -1,43 +1,72 @@
 [gd_scene load_steps=4 format=3 uid="uid://v84y42jjjsrb"]
 
 [ext_resource type="PackedScene" uid="uid://bqsfydr8c5o08" path="res://Characters/Player/Player.tscn" id="1_21prg"]
-[ext_resource type="PackedScene" uid="uid://hgh1u6vbajt" path="res://Trees/tree.tscn" id="1_xaqul"]
-[ext_resource type="PackedScene" uid="uid://bofjg8xl8vxvy" path="res://Characters/slime/mob_slime.tscn" id="2_lgeab"]
+[ext_resource type="Script" path="res://possum_survivors.gd" id="1_glrlb"]
+
+[sub_resource type="Curve2D" id="Curve2D_oq2cd"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -99, -67, 0, 0, 0, 0, 1259, -56, 0, 0, 0, 0, 1263, 678, 0, 0, 0, 0, -92, 678, 0, 0, 0, 0, -96, -65)
+}
+point_count = 5
 
 [node name="Game" type="Node2D"]
 y_sort_enabled = true
+script = ExtResource("1_glrlb")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = -1
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
-offset_right = 1154.0
-offset_bottom = 649.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 color = Color(0.211765, 1, 0.396078, 1)
 
 [node name="Player" parent="." instance=ExtResource("1_21prg")]
 position = Vector2(336, 241)
 
-[node name="Mob_Slime" parent="." instance=ExtResource("2_lgeab")]
-position = Vector2(341, 457)
+[node name="Path2D" type="Path2D" parent="Player"]
+position = Vector2(-336, -241)
+curve = SubResource("Curve2D_oq2cd")
 
-[node name="StaticBody2D" parent="." instance=ExtResource("1_xaqul")]
-position = Vector2(756, 201)
+[node name="PathFollow2D" type="PathFollow2D" parent="Player/Path2D"]
+unique_name_in_owner = true
+position = Vector2(-99, -67)
+rotation = 0.00809997
 
-[node name="StaticBody2D2" parent="." instance=ExtResource("1_xaqul")]
-position = Vector2(835, 197)
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.291
+autostart = true
 
-[node name="StaticBody2D3" parent="." instance=ExtResource("1_xaqul")]
-position = Vector2(800, 228)
+[node name="GameOver" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+visible = false
 
-[node name="StaticBody2D4" parent="." instance=ExtResource("1_xaqul")]
-position = Vector2(128, 376)
+[node name="ColorRect" type="ColorRect" parent="GameOver"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.470588)
 
-[node name="StaticBody2D5" parent="." instance=ExtResource("1_xaqul")]
-position = Vector2(541, 576)
+[node name="Label" type="Label" parent="GameOver/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -43.5
+offset_top = -11.5
+offset_right = 43.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 100
+text = "Game Over"
 
-[node name="StaticBody2D6" parent="." instance=ExtResource("1_xaqul")]
-position = Vector2(460, 166)
-
-[node name="StaticBody2D7" parent="." instance=ExtResource("1_xaqul")]
-position = Vector2(954, 503)
+[connection signal="health_depleted" from="Player" to="." method="_on_player_health_depleted"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

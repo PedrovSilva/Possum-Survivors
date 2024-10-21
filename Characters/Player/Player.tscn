@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://bqsfydr8c5o08"]
+[gd_scene load_steps=33 format=3 uid="uid://bqsfydr8c5o08"]
 
 [ext_resource type="Texture2D" uid="uid://byg7pyix48yb2" path="res://Characters/Player/possum.png" id="1_5k68k"]
 [ext_resource type="Script" path="res://Characters/Player/player.gd" id="1_kes2s"]
@@ -484,6 +484,16 @@ transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition
 [sub_resource type="CircleShape2D" id="CircleShape2D_kk722"]
 radius = 12.0416
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_sotyh"]
+radius = 12.0416
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n543p"]
+bg_color = Color(0.587892, 0.0492574, 0.068459, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
 [node name="Player" type="CharacterBody2D"]
 platform_floor_layers = 4294967040
 script = ExtResource("1_kes2s")
@@ -512,3 +522,23 @@ shape = SubResource("CircleShape2D_kk722")
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="Gun" parent="." instance=ExtResource("3_5geu4")]
+position = Vector2(2, 3)
+
+[node name="HurtBox" type="Area2D" parent="."]
+unique_name_in_owner = true
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+shape = SubResource("CircleShape2D_sotyh")
+debug_color = Color(0.996638, 0, 0.182761, 0.42)
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+unique_name_in_owner = true
+offset_left = -20.0
+offset_top = -29.0
+offset_right = 20.0
+offset_bottom = -25.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_n543p")
+value = 100.0
+show_percentage = false
