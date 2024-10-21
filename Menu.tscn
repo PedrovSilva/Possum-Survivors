@@ -1,0 +1,27 @@
+[gd_scene load_steps=2 format=3 uid="uid://crv84rg3b7mkw"]
+
+[ext_resource type="Script" path="res://PlayButton.gd" id="1_ubmxc"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1149.0
+offset_bottom = 647.0
+color = Color(0.211765, 1, 0.396078, 1)
+
+[node name="Label" type="Label" parent="."]
+offset_left = 118.0
+offset_top = 95.0
+offset_right = 1046.0
+offset_bottom = 232.0
+theme_override_font_sizes/font_size = 100
+text = "Gamba Adventures"
+
+[node name="Button" type="Button" parent="."]
+offset_left = 347.0
+offset_top = 473.0
+offset_right = 785.0
+offset_bottom = 543.0
+text = "Play
+"
+script = ExtResource("1_ubmxc")
