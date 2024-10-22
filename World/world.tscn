@@ -1,10 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://c5kuqdj108oti"]
+[gd_scene load_steps=8 format=3 uid="uid://c5kuqdj108oti"]
 
 [ext_resource type="Texture2D" uid="uid://c1rtnxgpi78xe" path="res://World/tilemap1.png" id="1_3wdl8"]
+[ext_resource type="Script" path="res://World/world.gd" id="1_ng6rq"]
+[ext_resource type="PackedScene" uid="uid://bqsfydr8c5o08" path="res://Characters/Player/Player.tscn" id="3_r1rf6"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_25at8"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_klhma"]
+noise = SubResource("FastNoiseLite_25at8")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_skujp"]
 texture = ExtResource("1_3wdl8")
-0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
 3:0/0 = 0
@@ -15,11 +21,6 @@ texture = ExtResource("1_3wdl8")
 8:0/0 = 0
 11:0/0 = 0
 12:0/0 = 0
-0:1/animation_columns = 3
-0:1/animation_frame_0/duration = 1.0
-0:1/animation_frame_1/duration = 1.0
-0:1/animation_frame_2/duration = 1.0
-0:1/0 = 0
 11:1/0 = 0
 12:1/0 = 0
 13:1/0 = 0
@@ -1363,6 +1364,11 @@ texture = ExtResource("1_3wdl8")
 11:21/0/terrains_peering_bit/top_side = 0
 9:0/size_in_atlas = Vector2i(2, 2)
 9:0/0 = 0
+0:0/0 = 0
+0:1/animation_frame_0/duration = 1.0
+0:1/animation_frame_1/duration = 1.0
+0:1/animation_frame_2/duration = 1.0
+0:1/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_bljg0"]
 terrain_set_0/mode = 0
@@ -1380,12 +1386,19 @@ terrain_set_3/terrain_0/color = Color(0.405021, 0.00148204, 0.967307, 1)
 sources/0 = SubResource("TileSetAtlasSource_skujp")
 
 [node name="World" type="Node2D"]
+script = ExtResource("1_ng6rq")
+noise_height_text = SubResource("NoiseTexture2D_klhma")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_bljg0")
 format = 2
 layer_0/name = "Water"
+layer_0/z_index = -1
 layer_1/name = "Ground"
+layer_1/z_index = -1
 layer_2/name = "Enviroment"
+layer_3/name = "cliff"
 
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Player" parent="." instance=ExtResource("3_r1rf6")]
