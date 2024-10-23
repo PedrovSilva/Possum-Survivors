@@ -22,7 +22,7 @@ offset_right = 1067.0
 offset_bottom = 130.0
 theme_override_colors/font_color = Color(0.807085, 0.000383506, 0.778347, 1)
 theme_override_font_sizes/font_size = 100
-text = "Gamba Adventures"
+text = "Gambá Adventures"
 
 [node name="Button" type="Button" parent="."]
 offset_left = 344.0
