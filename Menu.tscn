@@ -1,5 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://crv84rg3b7mkw"]
+[gd_scene load_steps=3 format=3 uid="uid://crv84rg3b7mkw"]
 
+[ext_resource type="Texture2D" uid="uid://5ov3ouggjblk" path="res://51G-9P3+ihL._AC_UF1000,1000_QL80_.jpg" id="1_4ihrv"]
 [ext_resource type="Script" path="res://PlayButton.gd" id="1_ubmxc"]
 
 [node name="Node2D" type="Node2D"]
@@ -9,19 +10,24 @@ offset_right = 1149.0
 offset_bottom = 647.0
 color = Color(0.211765, 1, 0.396078, 1)
 
+[node name="51g-9p3+ihL_AcUf1000,1000Ql80" type="Sprite2D" parent="."]
+position = Vector2(569.5, 384.5)
+scale = Vector2(1.74963, 0.845)
+texture = ExtResource("1_4ihrv")
+
 [node name="Label" type="Label" parent="."]
-offset_left = 118.0
-offset_top = 95.0
-offset_right = 1046.0
-offset_bottom = 232.0
+offset_left = 139.0
+offset_top = -7.0
+offset_right = 1067.0
+offset_bottom = 130.0
 theme_override_font_sizes/font_size = 100
 text = "Gamba Adventures"
 
 [node name="Button" type="Button" parent="."]
-offset_left = 347.0
-offset_top = 473.0
-offset_right = 785.0
-offset_bottom = 543.0
+offset_left = 344.0
+offset_top = 493.0
+offset_right = 782.0
+offset_bottom = 563.0
 text = "Play
 "
 script = ExtResource("1_ubmxc")
