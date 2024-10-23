@@ -1,13 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://v84y42jjjsrb"]
+[gd_scene load_steps=5 format=3 uid="uid://v84y42jjjsrb"]
 
 [ext_resource type="PackedScene" uid="uid://bqsfydr8c5o08" path="res://Characters/Player/Player.tscn" id="1_21prg"]
 [ext_resource type="Script" path="res://possum_survivors.gd" id="1_glrlb"]
+[ext_resource type="PackedScene" uid="uid://c5kuqdj108oti" path="res://World/world.tscn" id="2_a4flm"]
 
 [sub_resource type="Curve2D" id="Curve2D_oq2cd"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -99, -67, 0, 0, 0, 0, 1259, -56, 0, 0, 0, 0, 1263, 678, 0, 0, 0, 0, -92, 678, 0, 0, 0, 0, -96, -65)
+"points": PackedVector2Array(0, 0, 0, 0, -147, -202.324, 0, 0, 0, 0, 1299, -204.27, 0, 0, 0, 0, 1301, 799, 0, 0, 0, 0, 561, 816, 0, 0, 0, 0, -152, 832, 0, 0, 0, 0, -147, -214)
 }
-point_count = 5
+point_count = 6
 
 [node name="Game" type="Node2D"]
 y_sort_enabled = true
@@ -16,25 +17,20 @@ script = ExtResource("1_glrlb")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = -1
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.211765, 1, 0.396078, 1)
+[node name="World" parent="CanvasLayer" instance=ExtResource("2_a4flm")]
 
 [node name="Player" parent="." instance=ExtResource("1_21prg")]
 position = Vector2(336, 241)
 
 [node name="Path2D" type="Path2D" parent="Player"]
-position = Vector2(-336, -241)
+position = Vector2(-336, -211.14)
+scale = Vector2(1, 0.929254)
 curve = SubResource("Curve2D_oq2cd")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Player/Path2D"]
 unique_name_in_owner = true
-position = Vector2(-99, -67)
-rotation = 0.00809997
+position = Vector2(-147, -202.324)
+rotation = -0.00134581
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.291

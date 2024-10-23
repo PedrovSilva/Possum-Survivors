@@ -17,6 +17,8 @@ func _physics_process(delta: float) -> void:
 	
 func take_damage() -> void:
 	health -= 1
+	
+	%Hit.play()
 	%Slime.play_hurt()
 	
 	if health == 0:
