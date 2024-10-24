@@ -13,7 +13,7 @@ config_version=5
 config/name="Possum-Survivors"
 run/main_scene="res://Menu.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
-config/icon="res://opossum_by_vincefluff_decswer-375w-2x.svg"
+config/icon="res://opossum_by_vincefluff_decswer-375w-2x.jpg"
 
 [dotnet]
 

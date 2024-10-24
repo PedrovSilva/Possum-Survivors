@@ -30,7 +30,7 @@ curve = SubResource("Curve2D_oq2cd")
 [node name="PathFollow2D" type="PathFollow2D" parent="Player/Path2D"]
 unique_name_in_owner = true
 position = Vector2(-147, -202.324)
-rotation = -0.00134581
+rotation = -0.00134578
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.291
@@ -44,6 +44,7 @@ visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_bottom = 21.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.470588)
