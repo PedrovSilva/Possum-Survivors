@@ -16,13 +16,13 @@ scale = Vector2(1.74963, 0.845)
 texture = ExtResource("1_4ihrv")
 
 [node name="Label" type="Label" parent="."]
-offset_left = 139.0
+offset_left = 78.0
 offset_top = -7.0
-offset_right = 1067.0
+offset_right = 1079.0
 offset_bottom = 130.0
 theme_override_colors/font_color = Color(0.807085, 0.000383506, 0.778347, 1)
 theme_override_font_sizes/font_size = 100
-text = "Gambá Adventures"
+text = "Gambá's Adventures"
 
 [node name="Button" type="Button" parent="."]
 offset_left = 344.0
