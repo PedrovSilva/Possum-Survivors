@@ -1,7 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://dhmhmrth6rdce"]
+[gd_scene load_steps=14 format=3 uid="uid://dhmhmrth6rdce"]
 
 [ext_resource type="Shader" path="res://smoke_explosion/smoke_explosion.gdshader" id="1_bmef6"]
 [ext_resource type="Script" path="res://smoke_explosion/smoke_explosion.gd" id="1_kb8ql"]
+[ext_resource type="AudioStream" uid="uid://k5fh8a8ifutc" path="res://smoke_explosion/Sumiu.mp3" id="3_tfc46"]
 
 [sub_resource type="Gradient" id="Gradient_obal6"]
 interpolation_mode = 1
@@ -149,3 +150,7 @@ libraries = {
 "": SubResource("AnimationLibrary_8msef")
 }
 autoplay = "RESET"
+
+[node name="Sound" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("3_tfc46")
