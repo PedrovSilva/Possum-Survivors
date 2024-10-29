@@ -3,6 +3,7 @@ extends CharacterBody2D
 
 @onready var player = get_node("/root/Game/Player")
 @export var mobSpeed = 150
+signal kill
 var health = 3
 
 func _ready() -> void:
@@ -22,6 +23,7 @@ func take_damage() -> void:
 	%Slime.play_hurt()
 	
 	if health == 0:
+		kill.emit()
 		queue_free()
 		
 		const SMOKE_SCENE = preload("res://smoke_explosion/smoke_explosion.tscn")
