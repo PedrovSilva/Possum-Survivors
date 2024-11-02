@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://v84y42jjjsrb"]
+[gd_scene load_steps=6 format=3 uid="uid://v84y42jjjsrb"]
 
 [ext_resource type="PackedScene" uid="uid://bqsfydr8c5o08" path="res://Characters/Player/Player.tscn" id="1_21prg"]
 [ext_resource type="Script" path="res://possum_survivors.gd" id="1_glrlb"]
 [ext_resource type="PackedScene" uid="uid://c5kuqdj108oti" path="res://World/world.tscn" id="2_a4flm"]
+[ext_resource type="AudioStream" uid="uid://coje06a4xkbyi" path="res://Terraria-Soundtrack-Overworld-Day.mp3" id="4_e1lu4"]
 
 [sub_resource type="Curve2D" id="Curve2D_oq2cd"]
 _data = {
@@ -86,6 +87,10 @@ offset_bottom = 42.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 30
 text = "Score: 0"
+
+[node name="SoundTrack" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_e1lu4")
+autoplay = true
 
 [connection signal="health_depleted" from="Player" to="." method="_on_player_health_depleted"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
